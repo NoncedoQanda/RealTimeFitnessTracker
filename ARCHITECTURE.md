@@ -12,7 +12,7 @@ The Real-Time Fitness Tracker allows users to monitor their fitness data and syn
 graph TD
     A[User] -->|Uses| B(Real-Time Fitness Tracker)
     B -->|Syncs with| C[Cloud Service]
-    B -->|Integrates| D[External Fitness API]
+    B -->|Integrates| D[External Fitness API]## Container Diagram
 graph TD
     A[User] -->|Interacts with| B[Mobile App]
     B -->|Reads| C[Mobile Device Sensors]
