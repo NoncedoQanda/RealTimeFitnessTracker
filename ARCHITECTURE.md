@@ -8,6 +8,7 @@ Provide immediate feedback on workouts to improve training efficiency.
 
 ### Individual Scope
 Feasible using mobile sensors and a lightweight backend.
+
 ## Context Diagram
 The Real-Time Fitness Tracker allows users to monitor their fitness data and syncs with a cloud service for storage and analysis.
 
@@ -16,14 +17,6 @@ graph TD
     A[User] -->|Uses| B(Real-Time Fitness Tracker)
     B -->|Syncs with| C[Cloud Service]
     B -->|Integrates| D[External Fitness API]
-## Container Diagram
-The system consists of a mobile app for user interaction, a backend API for processing, and a database for storage, leveraging mobile device sensors.
-
-```mermaid
-graph TD
-    A[User] -->|Interacts with| B[Mobile App]
-    B -->|Reads| C[Mobile Device Sensors]
-    B -->|Sends data to| D[Backend API]
     D -->|Stores/Retrieves| E[Database]
     D -->|Queries| F[External Fitness API]
 ## Component Diagram
