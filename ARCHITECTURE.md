@@ -17,22 +17,12 @@ graph TD
     A[User] -->|Uses| B(Real-Time Fitness Tracker)
     B -->|Syncs with| C[Cloud Service]
     B -->|Integrates| D[External Fitness API]
+graph TD
+    A[User] -->|Interacts with| B[Mobile App]
+    B -->|Reads| C[Mobile Device Sensors]
+    B -->|Sends data to| D[Backend API]
     D -->|Stores/Retrieves| E[Database]
     D -->|Queries| F[External Fitness API]
-## Component Diagram
-Inside the Mobile App, key components handle user interaction, data processing, and sensor communication.
-
-```mermaid
-graph TD
-    A[User] -->|Interacts with| B[UI Layer]
-    B -->|Calls| C[Data Processor]
-    C -->|Fetches data from| D[Sensor Interface]
-    D -->|Reads| E[Mobile Device Sensors]
-    C -->|Sends to| F[Backend API]
-## Component Diagram
-Inside the Mobile App, key components handle user interaction, data processing, and sensor communication.
-
-```mermaid
 graph TD
     A[User] -->|Interacts with| B[UI Layer]
     B -->|Calls| C[Data Processor]
