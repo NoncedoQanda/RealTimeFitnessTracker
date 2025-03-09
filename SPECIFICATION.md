@@ -1,14 +1,13 @@
-# SPECIFICATION.md
-## Introduction
+# Introduction # SPECIFICATION.md
 
-### Project Title
-Real-Time Fitness Tracker
+### Project Name: Fitness Tracker in Real Time
 
-### Domain
-Health & Fitness – This system operates in the domain of personal health and wellness, focusing on real-time monitoring and management of physical activity. It targets individuals who engage in exercise, ranging from casual walkers to dedicated athletes, and integrates with modern mobile technology to provide actionable insights.
+### Domain 
+Health & Fitness: With an emphasis on real-time physical activity monitoring and management, this system functions within the realm of individual health and wellness. It targets those who exercise, from infrequent walkers to serious athletes, and it connects with contemporary mobile technologies to deliver useful insights.
 
 ### Problem Statement
-Many fitness enthusiasts lack immediate, accurate feedback during workouts, making it difficult to adjust their efforts in real time or track progress effectively. Existing solutions often provide delayed data or require cumbersome manual input, reducing their utility. The Real-Time Fitness Tracker addresses this by delivering instant metrics—such as heart rate, calorie burn, and exercise duration—directly to the user, enhancing training efficiency and motivation.
+During workouts, many fitness lovers do not receive prompt, precise feedback, which makes it challenging to adequately track progress or modify their efforts in real time. The usefulness of existing solutions is diminished since they frequently deliver delayed data or necessitate laborious manual input. In order to improve training effectiveness and motivation, the Real-Time Fitness Tracker provides users with immediate indicators, like heart rate, calorie burn, and activity time.
 
-### Individual Scope
-This project is feasible for an individual developer within the assignment’s timeframe. It leverages existing mobile device sensors (e.g., accelerometer, heart rate monitor) and widely available APIs, reducing the need for custom hardware or complex infrastructure. The system requires a straightforward mobile app for data collection and display, paired with a lightweight backend for storage and processing—tasks manageable with basic programming skills and standard development tools like GitHub, Markdown, and a mobile framework (e.g., Flutter or React Native). The scope is limited to core fitness tracking features, ensuring completion without overwhelming resources.
+
+### Personal Scope
+An lone developer can complete this project within the allotted time. It eliminates the need for specialized hardware or intricate infrastructure by utilizing readily accessible APIs and sensors included in mobile devices, such as heart rate monitors and accelerometers. Basic programming knowledge and common development tools like GitHub, Markdown, and a mobile framework (like Flutter or React Native) can handle the system's requirements for a simple mobile app for data collecting and presentation and a lightweight backend for processing and storage. To ensure completion without taxing resources, the scope is restricted to essential fitness tracking elements.
