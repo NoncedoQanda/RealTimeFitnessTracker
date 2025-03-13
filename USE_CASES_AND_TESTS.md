@@ -1,23 +1,14 @@
 # USE_CASES_AND_TESTS.md
 ## Use Case Diagram for Real-Time Fitness Tracker
 
+# USE_CASES_AND_TESTS.md
+## Use Case Diagram for Real-Time Fitness Tracker
+
 ### Diagram
 ```mermaid
 graph TD
     A[Fitness Enthusiast] --> UC1[Track Heart Rate]
-    A --> UC2[Calculate Calories]
-    A --> UC3[Start/Stop Workout]
-    A --> UC4[Sync Data]
-    A --> UC7[Set Goals]
-    A --> UC8[Notify Goal Completion]
-    B[Personal Trainer] --> UC5[Export Logs]
-    C[App Developer] --> UC6[Integrate APIs]
-    D[Cloud Service Provider] --> UC4
-    E[Healthcare Professional] --> UC5
-    F[Fitness Device] --> UC1
-    F --> UC2
-    UC1 --> UC2 %% Calculate Calories includes Track Heart Rate
-    UC3 --> UC1 %% Start/Stop Workout triggers Track Heart Rate
+    UC3[Start/Stop Workout] --> UC1 %% Triggers tracking
 ### Explanation
 - **Actors**:
   - *Fitness Enthusiast*: Primary user, tracks workouts and sets goals (FR1, FR7).
