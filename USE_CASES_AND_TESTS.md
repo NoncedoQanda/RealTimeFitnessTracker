@@ -16,9 +16,8 @@ graph TD
     E[Healthcare Professional] --> UC5
     F[Fitness Device] --> UC1
     F --> UC2
-    UC1 --> UC2  %% Calculate Calories includes Track Heart Rate
-    UC3 --> UC1  %% Start/Stop Workout triggers Track Heart Rate
-
+    UC1 --> UC2 %% Calculate Calories includes Track Heart Rate
+    UC3 --> UC1 %% Start/Stop Workout triggers Track Heart Rate
 ### Explanation
 - **Actors**:
   - *Fitness Enthusiast*: Primary user, tracks workouts and sets goals (FR1, FR7).
