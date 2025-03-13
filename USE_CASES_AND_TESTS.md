@@ -8,7 +8,7 @@
 ```mermaid
 graph TD
     A[Fitness Enthusiast] --> UC1[Track Heart Rate]
-    UC3[Start/Stop Workout] --> UC1 %% Triggers tracking
+    UC3[Start/Stop Workout] --> UC1 %% Triggers tracking```
 ### Explanation
 - **Actors**:
   - *Fitness Enthusiast*: Primary user, tracks workouts and sets goals (FR1, FR7).
