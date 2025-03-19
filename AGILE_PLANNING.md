@@ -69,3 +69,10 @@ Deliver core workout tracking, goal-setting, and device integration functionalit
 | T-008   | Validate and save goal          | Dev Team    | 4               | To Do          |
 | T-009   | Set up Fitness Device data stream | Dev Team  | 8               | To Do          |
 | T-010   | Test data accuracy (95% threshold) | Dev Team | 4              | To Do          |
+
+## Reflection (500 Words)
+Transitioning to Agile for the Real-Time Fitness Tracker was a rollercoaster of excitement and self-doubt. As the sole stakeholder, I wrestled with breaking down Assignment 4’s FRs into user stories—US-001 felt like rehashing FR1, but articulating the “so that” benefit (monitoring intensity) sharpened my focus on user value. Prioritization was a battle; I initially leaned toward making US-004 a Must-have for cloud sync, but settled on Should-have, trusting local tracking for the MVP. Adding US-012 to Sprint 1 stretched my ambition—its 5 points tempted me to trim scope, yet its device integration felt non-negotiable for reliability.
+
+Estimating effort solo was daunting. Assigning 5 points to US-012 versus 2 to US-007 relied on gut feel—device APIs loomed larger than a simple form—but without a team, it was guesswork refined by INVEST principles. GitHub tools were a learning curve; Issues clicked fast, but syncing Milestones and Projects tripped me up until I nailed the workflow. The “Agile Fitness Tracker” board became my lifeline, visually tying US-012’s data stream to US-001’s display.
+
+Continuity with Assignments 3-5 was a strength—FR1-FR8 mapped cleanly to stories, and UC1-UC8 reinforced Must-haves like US-012. The real challenge was resisting scope creep; US-011’s manual input tugged at me, but cutting it as Won’t-have taught me discipline. This solo Agile run mimicked real-world trade-offs—balancing stakeholder needs (mine!) with time—and left me sharper at iterative planning.
