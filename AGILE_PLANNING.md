@@ -50,3 +50,22 @@ Deliver core workout tracking and goal-setting functionality for the Fitness Ent
 - US-003: Start/stop workouts (Must-have, 2 points)
 - US-007: Set fitness goals (Must-have, 2 points)
 - US-012: Provide accurate data (Fitness Device) (Must-have, 5 points)
+
+- ## Sprint 1 Planning (2 Weeks)
+
+### Sprint Goal
+Deliver core workout tracking, goal-setting, and device integration functionality for the Fitness Enthusiast to enable reliable real-time monitoring and motivation.
+
+### Sprint Backlog
+| Task ID | Task Description                | Assigned To | Estimated Hours | Status         |
+|---------|---------------------------------|-------------|-----------------|----------------|
+| T-001   | Connect to Fitness Device API   | Dev Team    | 8               | To Do          |
+| T-002   | Display heart rate UI           | Dev Team    | 6               | To Do          |
+| T-003   | Implement calorie calculation logic | Dev Team | 6               | To Do          |
+| T-004   | Design calorie display UI       | Dev Team    | 4               | To Do          |
+| T-005   | Add start/stop button           | Dev Team    | 4               | To Do          |
+| T-006   | Save session data locally       | Dev Team    | 6               | To Do          |
+| T-007   | Create goal-setting form        | Dev Team    | 4               | To Do          |
+| T-008   | Validate and save goal          | Dev Team    | 4               | To Do          |
+| T-009   | Set up Fitness Device data stream | Dev Team  | 8               | To Do          |
+| T-010   | Test data accuracy (95% threshold) | Dev Team | 4              | To Do          |
