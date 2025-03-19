@@ -8,4 +8,5 @@ The Real-Time Fitness Tracker is a mobile application designed to monitor workou
 - [Stakeholder Analysis](STAKEHOLDER_ANALYSIS.md)
 - [System Requirements](SYSTEM_REQUIREMENTS.md)
 - [Use Cases and Tests](USE_CASES_AND_TESTS.md)
+- [Agile Planning](AGILE_PLANNING.md)
 - [Reflection](REFLECTION.md)
