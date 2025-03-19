@@ -39,3 +39,13 @@
 - **Should-have**: Security (US-010), cloud sync (US-004), and notifications (US-008) enhance value but can wait beyond MVP.
 - **Could-have**: Trainer/healthcare features (US-005, US-009) and API integration (US-006) are valuable but not critical initially.
 - **Won’t-have**: Manual input (US-011) is low priority due to reliance on Fitness Device.
+
+## Sprint 1 Planning (2 Weeks)
+### Sprint Goal
+Deliver core workout tracking and goal-setting functionality for the Fitness Enthusiast to enable real-time monitoring and motivation.
+
+### Selected Stories
+- US-001: Track heart rate in real time (Must-have, 3 points)
+- US-002: Calculate calories burned (Must-have, 3 points)
+- US-003: Start/stop workouts (Must-have, 2 points)
+- US-007: Set fitness goals (Must-have, 2 points)
