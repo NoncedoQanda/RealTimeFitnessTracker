@@ -49,3 +49,4 @@ Deliver core workout tracking and goal-setting functionality for the Fitness Ent
 - US-002: Calculate calories burned (Must-have, 3 points)
 - US-003: Start/stop workouts (Must-have, 2 points)
 - US-007: Set fitness goals (Must-have, 2 points)
+- US-012: Provide accurate data (Fitness Device) (Must-have, 5 points)
