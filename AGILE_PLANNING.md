@@ -42,18 +42,6 @@
 
 ## Sprint 1 Planning (2 Weeks)
 ### Sprint Goal
-Deliver core workout tracking and goal-setting functionality for the Fitness Enthusiast to enable real-time monitoring and motivation.
-
-### Selected Stories
-- US-001: Track heart rate in real time (Must-have, 3 points)
-- US-002: Calculate calories burned (Must-have, 3 points)
-- US-003: Start/stop workouts (Must-have, 2 points)
-- US-007: Set fitness goals (Must-have, 2 points)
-- US-012: Provide accurate data (Fitness Device) (Must-have, 5 points)
-
-- ## Sprint 1 Planning (2 Weeks)
-
-### Sprint Goal
 Deliver core workout tracking, goal-setting, and device integration functionality for the Fitness Enthusiast to enable reliable real-time monitoring and motivation.
 
 ### Sprint Backlog
