@@ -15,3 +15,27 @@
 | US-010   | As a Cloud Service Provider, I want data synced securely so that user privacy is maintained.                   | AES-256 encryption during sync.                        | High     |
 | US-011   | As a Fitness Enthusiast, I want manual input for heart rate so that I can track without a device.              | Manual entry option if device disconnects.             | Low      |
 | US-012   | As a Fitness Device, I want to provide accurate data so that the app functions reliably.                       | Data sent every 1 sec, 95% accuracy.                   | High     |
+
+# AGILE_PLANNING.md
+## Product Backlog
+
+| Story ID | User Story                                              | Priority (MoSCoW) | Effort Estimate (Story Points) | Dependencies |
+|----------|--------------------------------------------------------|-------------------|-------------------------------|--------------|
+| US-001   | Track my heart rate in real time                       | Must-have         | 3                             | US-012       |
+| US-002   | Calculate calories burned                              | Must-have         | 3                             | US-001       |
+| US-003   | Start/stop workouts                                    | Must-have         | 2                             | None         |
+| US-007   | Set fitness goals                                      | Must-have         | 2                             | None         |
+| US-012   | Provide accurate data (Fitness Device)                 | Must-have         | 5                             | None         |
+| US-010   | Sync data securely (Cloud Service Provider)            | Should-have       | 3                             | US-004       |
+| US-004   | Sync data to the cloud                                 | Should-have       | 2                             | US-003       |
+| US-008   | Notify when I complete a goal                          | Should-have       | 2                             | US-002, US-007 |
+| US-005   | Export workout logs (Personal Trainer)                 | Could-have        | 3                             | US-004       |
+| US-006   | Integrate external APIs                                | Could-have        | 5                             | US-004       |
+| US-009   | Access workout logs (Healthcare Professional)          | Could-have        | 2                             | US-005       |
+| US-011   | Manual input for heart rate                            | Won’t-have        | 1                             | None         |
+
+### Prioritization Justification
+- **Must-have**: Core tracking (US-001, US-002, US-003, US-012) and goal setting (US-007) are essential for the MVP, addressing Fitness Enthusiast’s primary needs (usability, real-time feedback).
+- **Should-have**: Security (US-010), cloud sync (US-004), and notifications (US-008) enhance value but can wait beyond MVP.
+- **Could-have**: Trainer/healthcare features (US-005, US-009) and API integration (US-006) are valuable but not critical initially.
+- **Won’t-have**: Manual input (US-011) is low priority due to reliance on Fitness Device.
