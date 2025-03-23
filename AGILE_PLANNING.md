@@ -1,4 +1,5 @@
 # AGILE_PLANNING.md
+
 ## User Stories
 
 | Story ID | User Story                                              | Acceptance Criteria                                      | Priority |
@@ -16,7 +17,6 @@
 | US-011   | As a Fitness Enthusiast, I want manual input for heart rate so that I can track without a device.              | Manual entry option if device disconnects.             | Low      |
 | US-012   | As a Fitness Device, I want to provide accurate data so that the app functions reliably.                       | Data sent every 1 sec, 95% accuracy.                   | High     |
 
-# AGILE_PLANNING.md
 ## Product Backlog
 
 | Story ID | User Story                                              | Priority (MoSCoW) | Effort Estimate (Story Points) | Dependencies |
@@ -41,26 +41,56 @@
 - **Won’t-have**: Manual input (US-011) is low priority due to reliance on Fitness Device.
 
 ## Sprint 1 Planning (2 Weeks)
+
 ### Sprint Goal
 Deliver core workout tracking, goal-setting, and device integration functionality for the Fitness Enthusiast to enable reliable real-time monitoring and motivation.
 
 ### Sprint Backlog
-| Task ID | Task Description                | Assigned To | Estimated Hours | Status         |
-|---------|---------------------------------|-------------|-----------------|----------------|
-| T-001   | Connect to Fitness Device API   | Dev Team    | 8               | To Do          |
-| T-002   | Display heart rate UI           | Dev Team    | 6               | To Do          |
-| T-003   | Implement calorie calculation logic | Dev Team | 6               | To Do          |
-| T-004   | Design calorie display UI       | Dev Team    | 4               | To Do          |
-| T-005   | Add start/stop button           | Dev Team    | 4               | To Do          |
-| T-006   | Save session data locally       | Dev Team    | 6               | To Do          |
-| T-007   | Create goal-setting form        | Dev Team    | 4               | To Do          |
-| T-008   | Validate and save goal          | Dev Team    | 4               | To Do          |
-| T-009   | Set up Fitness Device data stream | Dev Team  | 8               | To Do          |
-| T-010   | Test data accuracy (95% threshold) | Dev Team | 4              | To Do          |
+
+| Task ID | Task Description                | Assigned To | Estimated Hours | Status         | Acceptance Criteria                          |
+|---------|---------------------------------|-------------|-----------------|----------------|---------------------------------------------|
+| T-001   | Connect to Fitness Device API   | Alice       | 8               | To Do          | Successfully connects and retrieves data    |
+| T-002   | Display heart rate UI           | Bob         | 6               | To Do          | Heart rate displayed in real-time           |
+| T-003   | Implement calorie calculation logic | Carol   | 6               | To Do          | Calorie calculation matches MET within 5%   |
+| T-004   | Design calorie display UI       | Alice       | 4               | To Do          | Calorie display integrated with UI          |
+| T-005   | Add start/stop button           | Bob         | 4               | To Do          | Button starts/stops session, saves data     |
+| T-006   | Save session data locally       | Carol       | 6               | To Do          | Session data saved accurately on stop       |
+| T-007   | Create goal-setting form        | Alice       | 4               | To Do          | Form created and functional                 |
+| T-008   | Validate and save goal          | Bob         | 4               | To Do          | Goals are validated and saved               |
+| T-009   | Set up Fitness Device data stream | Carol     | 8               | To Do          | Data stream set up and operational          |
+| T-010   | Test data accuracy (95% threshold) | Alice     | 4               | To Do          | Data accuracy meets 95% threshold           |
+
+## Risk Management
+| Risk ID | Risk Description                                   | Mitigation Plan                                        |
+|---------|---------------------------------------------------|--------------------------------------------------------|
+| R-001   | Delay in API integration                          | Allocate buffer time, prioritize critical APIs         |
+| R-002   | Inaccurate heart rate data                        | Implement rigorous testing, use fallback mechanisms    |
+| R-003   | Data sync issues                                  | Regular sync tests, robust error handling              |
+
+## Sprint Review and Retrospective
+- **Sprint Review**: Review completed tasks, demonstrate to stakeholders, gather feedback.
+- **Retrospective**: Discuss what went well, what didn’t, and how to improve in the next sprint.
+
+## Continuous Integration and Testing
+- **CI Setup**: Implement a CI pipeline for automated builds and tests.
+- **Automated Testing**: Write unit tests, integration tests, and end-to-end tests to ensure code quality and functionality.
 
 ## Reflection (500 Words)
-Transitioning to Agile for the Real-Time Fitness Tracker was a rollercoaster of excitement and self-doubt. As the sole stakeholder, I wrestled with breaking down Assignment 4’s FRs into user stories—US-001 felt like rehashing FR1, but articulating the “so that” benefit (monitoring intensity) sharpened my focus on user value. Prioritization was a battle; I initially leaned toward making US-004 a Must-have for cloud sync, but settled on Should-have, trusting local tracking for the MVP. Adding US-012 to Sprint 1 stretched my ambition—its 5 points tempted me to trim scope, yet its device integration felt non-negotiable for reliability.
 
-Estimating effort solo was daunting. Assigning 5 points to US-012 versus 2 to US-007 relied on gut feel—device APIs loomed larger than a simple form—but without a team, it was guesswork refined by INVEST principles. GitHub tools were a learning curve; Issues clicked fast, but syncing Milestones and Projects tripped me up until I nailed the workflow. The “Agile Fitness Tracker” board became my lifeline, visually tying US-012’s data stream to US-001’s display.
+Transitioning to Agile for the Real-Time Fitness Tracker was a rollercoaster of excitement and self-doubt. As the sole stakeholder, I wrestled with breaking down Assignment 4’s Feature Requirements (FRs) into user stories that were clear, actionable, and aligned with the Agile principles. It was critical to ensure that each user story encapsulated a piece of functionality that delivered value to the user, while being feasible to complete within a single sprint.
 
-Continuity with Assignments 3-5 was a strength—FR1-FR8 mapped cleanly to stories, and UC1-UC8 reinforced Must-haves like US-012. The real challenge was resisting scope creep; US-011’s manual input tugged at me, but cutting it as Won’t-have taught me discipline. This solo Agile run mimicked real-world trade-offs—balancing stakeholder needs (mine!) with time—and left me sharper at iterative planning.
+Estimating effort solo was daunting. Assigning 5 points to US-012 versus 2 to US-007 relied on gut feel—device APIs loomed larger than a simple form—but without a team, it was guesswork refined by past experience. I had to objectively assess the complexity and interdependencies of tasks, balancing them against the limited resources and time constraints typical of a solo project.
+
+Continuity with Assignments 3-5 was a strength—FR1-FR8 mapped cleanly to stories, and Use Cases (UC1-UC8) reinforced Must-haves like US-012. The real challenge was resisting scope creep; US-011’s manual input was a tempting addition, but it risked diverting focus from core functionalities. Prioritizing user stories using the MoSCoW method helped maintain clarity on what was essential for the Minimum Viable Product (MVP).
+
+Sprint planning was another area of learning. Setting a sprint goal to deliver core workout tracking, goal-setting, and device integration functionality was straightforward, but breaking it down into a detailed sprint backlog required careful thought. Each task had to be granular enough to track progress but substantial enough to avoid micromanagement. Assigning tasks to “Dev Team” initially seemed sufficient, but I quickly realized the importance of individual accountability. This led to specifying task assignments, ensuring clear ownership and responsibility.
+
+Incorporating acceptance criteria for each task brought additional clarity, defining the “done” state and ensuring that each deliverable met the required standards. This practice also facilitated better testing and validation processes, crucial for maintaining the app’s reliability and user satisfaction.
+
+Risk management was another critical aspect. Identifying potential risks, such as delays in API integration or data accuracy issues, and planning mitigation strategies helped in proactively addressing challenges. This not only ensured smoother project execution but also built resilience into the project plan.
+
+The importance of regular review and retrospective meetings became apparent as the project progressed. These sessions provided valuable insights into what was working well and what needed improvement. By discussing successes and challenges openly, I could continuously refine processes, enhancing efficiency and effectiveness for future sprints.
+
+Lastly, setting up continuous integration and testing was a game-changer. Implementing a CI pipeline for automated builds and tests ensured that code quality remained high and that any issues were identified and addressed promptly. Writing unit tests, integration tests, and end-to-end tests provided comprehensive coverage, ensuring that all functionalities worked as expected and reducing the risk of bugs and regressions.
+
+In conclusion, transitioning to Agile for the Real-Time Fitness Tracker project was a significant learning experience. It required balancing detailed planning with flexibility, maintaining a user-centric focus, and continuously improving processes through feedback and reflection. Despite the challenges, the structured approach of Agile methodologies enabled the efficient delivery of a functional, reliable, and user-friendly fitness tracking application.
