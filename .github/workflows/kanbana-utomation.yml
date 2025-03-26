@@ -30,7 +30,7 @@ jobs:
 
             const event = context.eventName;
             const issue = context.payload.issue;
-            const projectNumber = 2; // Replace with your Sprint 1 Kanban number
+            const projectNumber = 14; // Replace with your Sprint 1 Kanban number
 
             if (!issue) {
               console.log('No issue found in payload');
