@@ -9,13 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Move Issue on Kanban Board
-          uses: actions/github-script@v6
-              with:
-        github-token: ${{ secrets.MY_GITHUB_TOKEN }} # Changed from GITHUB_TOKEN
-        script: |
-            // Log context for debugging
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.MY_GITHUB_TOKEN }}
+          script: |
             console.log('Event:', context.eventName);
-            console.log('Payload:', context.payload);
+            console.log('Action:', context.payload.action);
+            console.log('Issue Number:', context.payload.issue.number);
+            console.log('Label Added:', context.payload.label ? context.payload.label.name : 'No label');
 
             const columnMap = {
               'opened': 'To Do',
@@ -29,14 +30,13 @@ jobs:
 
             const event = context.eventName;
             const issue = context.payload.issue;
-            const projectNumber = 14; // Replace with your "Sprint 1 Kanban" number
+            const projectNumber = 2; // Replace with your Sprint 1 Kanban number
 
             if (!issue) {
               console.log('No issue found in payload');
               return;
             }
 
-            // Fetch project data
             const projectQuery = `
               query($owner: String!, $repo: String!, $projectNumber: Int!) {
                 repository(owner: $owner, name: $repo) {
@@ -73,8 +73,8 @@ jobs:
             const project = projectResponse.repository.projectV2;
             const statusField = project.fields.nodes.find(field => field.name === 'Status');
             const columnOptions = statusField.options;
+            console.log('Column Options:', columnOptions.map(opt => opt.name));
 
-            // Determine target column
             let targetColumnName;
             if (event === 'issues' && issue.state === 'open' && context.payload.action === 'opened') {
               targetColumnName = columnMap.opened;
@@ -82,21 +82,23 @@ jobs:
               targetColumnName = columnMap.closed;
             } else if (event === 'issues' && context.payload.action === 'labeled') {
               const label = context.payload.label.name.toLowerCase();
+              console.log('Lowercase Label:', label);
               targetColumnName = columnMap.labeled[label] || null;
             }
 
+            console.log('Target Column:', targetColumnName);
             if (!targetColumnName) {
               console.log('No target column determined');
               return;
             }
 
             const targetColumn = columnOptions.find(option => option.name === targetColumnName);
+            console.log('Found Column:', targetColumn ? targetColumn.name : 'Not found');
             if (!targetColumn) {
               console.log(`Column "${targetColumnName}" not found`);
               return;
             }
 
-            // Fetch item ID
             const itemQuery = `
               query($owner: String!, $repo: String!, $issueNumber: Int!) {
                 repository(owner: $owner, name: $repo) {
@@ -122,13 +124,13 @@ jobs:
 
             const itemResponse = await github.graphql(itemQuery, itemVars);
             const item = itemResponse.repository.issue.projectItems.nodes.find(node => node.project.id === project.id);
+            console.log('Item Found:', item ? item.id : 'Not linked');
 
             if (!item) {
               console.log('Issue not linked to project');
               return;
             }
 
-            // Move Issue
             const mutation = `
               mutation($projectId: ID!, $itemId: ID!, $fieldId: ID!, $value: String!) {
                 updateProjectV2ItemFieldValue(
