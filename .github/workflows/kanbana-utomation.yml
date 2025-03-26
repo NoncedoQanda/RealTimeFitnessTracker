@@ -9,10 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Move Issue on Kanban Board
-        uses: actions/github-script@v6
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
+          uses: actions/github-script@v6
+              with:
+        github-token: ${{ secrets.MY_GITHUB_TOKEN }} # Changed from GITHUB_TOKEN
+        script: |
             // Log context for debugging
             console.log('Event:', context.eventName);
             console.log('Payload:', context.payload);
