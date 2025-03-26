@@ -13,6 +13,10 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
+            // Log context for debugging
+            console.log('Event:', context.eventName);
+            console.log('Payload:', context.payload);
+
             const columnMap = {
               'opened': 'To Do',
               'closed': 'Done',
@@ -23,9 +27,14 @@ jobs:
               }
             };
 
-            const event = github.context.eventName;
-            const issue = github.context.payload.issue;
-            const projectNumber = 14; // Replace with your project number
+            const event = context.eventName;
+            const issue = context.payload.issue;
+            const projectNumber = 14; // Replace with your "Sprint 1 Kanban" number
+
+            if (!issue) {
+              console.log('No issue found in payload');
+              return;
+            }
 
             // Fetch project data
             const projectQuery = `
@@ -67,40 +76,27 @@ jobs:
 
             // Determine target column
             let targetColumnName;
-            if (event === 'issues' && issue.state === 'open' && github.context.payload.action === 'opened') {
+            if (event === 'issues' && issue.state === 'open' && context.payload.action === 'opened') {
               targetColumnName = columnMap.opened;
             } else if (event === 'issues' && issue.state === 'closed') {
               targetColumnName = columnMap.closed;
-            } else if (event === 'issues' && github.context.payload.action === 'labeled') {
-              const label = github.context.payload.label.name.toLowerCase();
+            } else if (event === 'issues' && context.payload.action === 'labeled') {
+              const label = context.payload.label.name.toLowerCase();
               targetColumnName = columnMap.labeled[label] || null;
             }
 
-            if (!targetColumnName) return;
+            if (!targetColumnName) {
+              console.log('No target column determined');
+              return;
+            }
 
             const targetColumn = columnOptions.find(option => option.name === targetColumnName);
-            if (!targetColumn) return;
+            if (!targetColumn) {
+              console.log(`Column "${targetColumnName}" not found`);
+              return;
+            }
 
-            // Move Issue to target column
-            const mutation = `
-              mutation($projectId: ID!, $itemId: ID!, $fieldId: ID!, $value: String!) {
-                updateProjectV2ItemFieldValue(
-                  input: {
-                    projectId: $projectId
-                    itemId: $itemId
-                    fieldId: $fieldId
-                    value: {
-                      singleSelectOptionId: $value
-                    }
-                  }
-                ) {
-                  projectV2Item {
-                    id
-                  }
-                }
-              }
-            `;
-
+            // Fetch item ID
             const itemQuery = `
               query($owner: String!, $repo: String!, $issueNumber: Int!) {
                 repository(owner: $owner, name: $repo) {
@@ -127,11 +123,36 @@ jobs:
             const itemResponse = await github.graphql(itemQuery, itemVars);
             const item = itemResponse.repository.issue.projectItems.nodes.find(node => node.project.id === project.id);
 
-            if (item) {
-              await github.graphql(mutation, {
-                projectId: project.id,
-                itemId: item.id,
-                fieldId: statusField.id,
-                value: targetColumn.id
-              });
+            if (!item) {
+              console.log('Issue not linked to project');
+              return;
             }
+
+            // Move Issue
+            const mutation = `
+              mutation($projectId: ID!, $itemId: ID!, $fieldId: ID!, $value: String!) {
+                updateProjectV2ItemFieldValue(
+                  input: {
+                    projectId: $projectId
+                    itemId: $itemId
+                    fieldId: $fieldId
+                    value: {
+                      singleSelectOptionId: $value
+                    }
+                  }
+                ) {
+                  projectV2Item {
+                    id
+                  }
+                }
+              }
+            `;
+
+            await github.graphql(mutation, {
+              projectId: project.id,
+              itemId: item.id,
+              fieldId: statusField.id,
+              value: targetColumn.id
+            });
+
+            console.log(`Moved issue #${issue.number} to ${targetColumnName}`);
