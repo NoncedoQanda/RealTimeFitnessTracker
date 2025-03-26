@@ -22,7 +22,8 @@ The Real-Time Fitness Tracker is a mobile application designed to monitor workou
   - `testing` → "Testing"
   - `blocked` → "Blocked"
 - **Screenshot**: [Kanban Board]
--![image](https://github.com/user-attachments/assets/ab7c103a-9904-45f1-b6cb-345b31901ece)
+- ![image](https://github.com/user-attachments/assets/a132b681-d07a-4e10-91d1-3d6c62233816)
+
 
 
 
