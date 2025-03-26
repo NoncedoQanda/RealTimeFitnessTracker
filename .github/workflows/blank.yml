@@ -1,0 +1,137 @@
+name: Kanban Automation
+
+on:
+  issues:
+    types: [opened, closed, labeled]
+
+jobs:
+  automate-kanban:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Move Issue on Kanban Board
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const columnMap = {
+              'opened': 'To Do',
+              'closed': 'Done',
+              'labeled': {
+                'in-progress': 'In Progress',
+                'testing': 'Testing',
+                'blocked': 'Blocked'
+              }
+            };
+
+            const event = github.context.eventName;
+            const issue = github.context.payload.issue;
+            const projectNumber = 14; // Replace with your project number
+
+            // Fetch project data
+            const projectQuery = `
+              query($owner: String!, $repo: String!, $projectNumber: Int!) {
+                repository(owner: $owner, name: $repo) {
+                  projectV2(number: $projectNumber) {
+                    id
+                    fields(first: 100) {
+                      nodes {
+                        ... on ProjectV2Field {
+                          id
+                          name
+                        }
+                        ... on ProjectV2SingleSelectField {
+                          id
+                          name
+                          options {
+                            id
+                            name
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            `;
+
+            const projectVars = {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              projectNumber: projectNumber
+            };
+
+            const projectResponse = await github.graphql(projectQuery, projectVars);
+            const project = projectResponse.repository.projectV2;
+            const statusField = project.fields.nodes.find(field => field.name === 'Status');
+            const columnOptions = statusField.options;
+
+            // Determine target column
+            let targetColumnName;
+            if (event === 'issues' && issue.state === 'open' && github.context.payload.action === 'opened') {
+              targetColumnName = columnMap.opened;
+            } else if (event === 'issues' && issue.state === 'closed') {
+              targetColumnName = columnMap.closed;
+            } else if (event === 'issues' && github.context.payload.action === 'labeled') {
+              const label = github.context.payload.label.name.toLowerCase();
+              targetColumnName = columnMap.labeled[label] || null;
+            }
+
+            if (!targetColumnName) return;
+
+            const targetColumn = columnOptions.find(option => option.name === targetColumnName);
+            if (!targetColumn) return;
+
+            // Move Issue to target column
+            const mutation = `
+              mutation($projectId: ID!, $itemId: ID!, $fieldId: ID!, $value: String!) {
+                updateProjectV2ItemFieldValue(
+                  input: {
+                    projectId: $projectId
+                    itemId: $itemId
+                    fieldId: $fieldId
+                    value: {
+                      singleSelectOptionId: $value
+                    }
+                  }
+                ) {
+                  projectV2Item {
+                    id
+                  }
+                }
+              }
+            `;
+
+            const itemQuery = `
+              query($owner: String!, $repo: String!, $issueNumber: Int!) {
+                repository(owner: $owner, name: $repo) {
+                  issue(number: $issueNumber) {
+                    projectItems(first: 10) {
+                      nodes {
+                        id
+                        project {
+                          id
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            `;
+
+            const itemVars = {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issueNumber: issue.number
+            };
+
+            const itemResponse = await github.graphql(itemQuery, itemVars);
+            const item = itemResponse.repository.issue.projectItems.nodes.find(node => node.project.id === project.id);
+
+            if (item) {
+              await github.graphql(mutation, {
+                projectId: project.id,
+                itemId: item.id,
+                fieldId: statusField.id,
+                value: targetColumn.id
+              });
+            }
