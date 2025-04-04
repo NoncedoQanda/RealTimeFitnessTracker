@@ -24,6 +24,10 @@ The Real-Time Fitness Tracker is a mobile application designed to monitor workou
 - **Screenshot**: [Kanban Board]
 - ![image](https://github.com/user-attachments/assets/a132b681-d07a-4e10-91d1-3d6c62233816)
 
+- ## Assignment 8: Dynamic Modeling
+- [State Transition Diagrams](state_transition_diagrams.md) - Maps to FR-001, FR-003, US-001, Sprint 1 tasks (T-001).
+- [Activity Diagrams](activity_diagrams.md) - Aligns with FR-004, US-003, stakeholder needs.
+
 
 
 
