@@ -1,0 +1,2 @@
+# assignment8_reflection.md
+Choosing detailed states (e.g., "Paused" vs. just "Active") was tough—too many felt cluttered, but too few lost clarity. Aligning with Agile user stories was tricky; US-001 needed multiple states (Tracking, Recorded) to match T-001’s scope. State diagrams showed object changes (e.g., Workout Session), while activity diagrams mapped processes (e.g., Start Workout), making workflows easier to follow but harder to link to objects.
