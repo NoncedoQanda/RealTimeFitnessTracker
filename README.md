@@ -42,6 +42,6 @@ The Real-Time Fitness Tracker is a mobile application designed to monitor workou
   - Sync Device: FR-012, US-012, T-012.
   - Save Workout Log: FR-004.
   - Pause Workout: FR-003, US-003 (extension).
-- [Reflection](assignment8_reflection.md)
+- [Reflection](assignment8_reflection.md): Lessons learned from state and activity modeling challenges.
 
 
