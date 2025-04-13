@@ -46,5 +46,5 @@ The Real-Time Fitness Tracker is a mobile application designed to monitor workou
 
 ## Assignment 9: Domain Modeling and Class Diagram
 - [Domain Model](domin_model.md)
-- [Class Diagram (UML)](class_diagram.md)
+- [Class Diagram (UML)](class_diagrams.md)
 - [Reflection](assignment9_reflection.md)
