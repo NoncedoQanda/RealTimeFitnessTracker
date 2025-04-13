@@ -44,4 +44,7 @@ The Real-Time Fitness Tracker is a mobile application designed to monitor workou
   - Pause Workout: FR-003, US-003 (extension).
 - [Reflection](assignment8_reflection.md): Lessons learned from state and activity modeling challenges.
 
-
+## Assignment 9: Domain Modeling and Class Diagram
+- [Domain Model](domain_model.md)
+- [Class Diagram (UML)](class_diagram.md)
+- [Reflection](assignment9_reflection.md)
