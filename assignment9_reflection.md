@@ -10,4 +10,3 @@ Trade-offs shaped the design. I used composition for Workout-to-HeartRate/Calori
 
 Lessons learned were profound. Domain modeling prioritizes core entities—User and Workout stood out, while Device was secondary but critical (FR-012). UML diagrams bridge requirements to code; `start()` and `record()` suggest clear methods. Iteration refined my model, aligning with Assignment 6’s Agile stories. Mermaid.js is great but finicky—splitting files in Assignment 8 taught me to test rendering early. Java code helped me see encapsulation (e.g., HeartRate’s `bpm`) and relationships as fields, but UML’s visual clarity won for design. This process showed me how object-oriented design turns ideas into systems, ready for coding.
 
-(510 words)
