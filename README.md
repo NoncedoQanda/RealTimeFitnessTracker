@@ -25,7 +25,7 @@ The Real-Time Fitness Tracker is a mobile application designed to monitor workou
 - ![image](https://github.com/user-attachments/assets/a132b681-d07a-4e10-91d1-3d6c62233816)
 
 ## Assignment 8: Dynamic Modeling
-- **[State Transition Diagrams (Objects 1-7)](state_transitions.md)**:
+- **[State Transition Diagrams (Objects 1-7)](state_transitions_diagrams.md)**:
   - Workout Session: FR-003, US-003, T-003 (start/stop).
   - Heart Rate Data: FR-001, US-001, T-001 (real-time tracking).
   - Calorie Data: FR-002, US-002, T-002 (calorie calculation).
