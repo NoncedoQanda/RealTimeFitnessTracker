@@ -61,3 +61,12 @@ The Real-Time Fitness Tracker is a mobile application designed to monitor workou
   - Builder: GoalBuilder constructs Goals with optional attributes (US-007).
   - Prototype: HeartRate cloning avoids redundant initialization (US-001).
   - Singleton: DatabaseConnection ensures one DB instance (FR-004).
+ 
+  - ## Assignment 10: From Class Diagrams to Code
+- **Language**: Java (familiar, supports OOP).
+- **Design**: Classes in /src match Assignment 9 UML. Composition for Workout-to-HeartRate/Calorie, aggregation for Log-to-Workout.
+- **Patterns** (/creational_patterns): Simple Factory (Workout types), Factory Method (Data processing), Abstract Factory (UI), Builder (Goal), Prototype (HeartRate), Singleton (DB).
+- [Source Code](/src)
+- [Creational Patterns](/creational_patterns)
+- [Tests](/tests)
+- [Changelog](CHANGELOG.md)
