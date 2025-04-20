@@ -53,3 +53,11 @@ The Real-Time Fitness Tracker is a mobile application designed to monitor workou
 - **Language Choice**: Java, chosen for familiarity (used in Assignment 9’s reference code) and strong support for object-oriented design, aligning with UML relationships.
 - **Design Decisions**: Implemented all classes from Assignment 9’s class diagram in /src. Used composition for Workout-to-HeartRate/Calorie (1-to-1) and aggregation for Log-to-Workout (1-to-1..*). Getters ensure encapsulation.
 - [Source Code](/src)
+
+- - **Creational Patterns** (/creational_patterns):
+  - Simple Factory: WorkoutFactory creates Cardio/Strength workouts for flexible session types (US-003).
+  - Factory Method: DataProcessorFactory delegates HeartRate/Calorie processing (US-001, US-002).
+  - Abstract Factory: UIFactory builds Mobile/Web UI components for platform-specific displays.
+  - Builder: GoalBuilder constructs Goals with optional attributes (US-007).
+  - Prototype: HeartRate cloning avoids redundant initialization (US-001).
+  - Singleton: DatabaseConnection ensures one DB instance (FR-004).
