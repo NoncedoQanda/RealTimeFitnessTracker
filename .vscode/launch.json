@@ -5,7 +5,7 @@
       "type": "java",
       "name": "Launch Main",
       "request": "launch",
-      "mainClass": "com.example.Main",
+     "mainClass": "com.fitness.tracker.Main"
       "projectName": "RealTimeFitnessTracker"
     }
   ]
