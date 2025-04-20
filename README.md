@@ -48,3 +48,8 @@ The Real-Time Fitness Tracker is a mobile application designed to monitor workou
 - [Domain Model](domin_model.md)
 - [Class Diagram (UML)](class_diagrams.md)
 - [Reflection](assignment9_reflection.md)
+
+- ## Assignment 10: From Class Diagrams to Code
+- **Language Choice**: Java, chosen for familiarity (used in Assignment 9’s reference code) and strong support for object-oriented design, aligning with UML relationships.
+- **Design Decisions**: Implemented all classes from Assignment 9’s class diagram in /src. Used composition for Workout-to-HeartRate/Calorie (1-to-1) and aggregation for Log-to-Workout (1-to-1..*). Getters ensure encapsulation.
+- [Source Code](/src)
