@@ -3,7 +3,7 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Launch Main",
+            "name": "Debug Fitness Tracker",
             "request": "launch",
             "mainClass": "com.fitness.tracker.Main",
             "projectName": "RealTimeFitnessTracker"
