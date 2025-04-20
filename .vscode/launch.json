@@ -1,12 +1,12 @@
 {
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "java",
-            "name": "Debug Fitness Tracker",
-            "request": "launch",
-            "mainClass": "com.fitness.tracker.Main",
-            "projectName": "RealTimeFitnessTracker"
-        }
-    ]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Launch Main",
+      "request": "launch",
+      "mainClass": "com.example.Main",
+      "projectName": "RealTimeFitnessTracker"
+    }
+  ]
 }
