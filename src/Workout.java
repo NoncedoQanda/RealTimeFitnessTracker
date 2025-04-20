@@ -1,4 +1,5 @@
 package com.fitness.tracker;
+
 import java.time.LocalDateTime;
 
 public class Workout {
@@ -14,9 +15,24 @@ public class Workout {
         this.status = "Inactive";
     }
 
-    public void start() { startTime = LocalDateTime.now(); status = "Active"; }
-    public void pause() { status = "Paused"; }
-    public void stop() { endTime = LocalDateTime.now(); status = "Inactive"; }
+    public void start() {
+        startTime = LocalDateTime.now();
+        status = "Active";
+        heartRate = new HeartRate("HR-" + workoutId, 0);
+        calorie = new Calorie("CAL-" + workoutId, 0.0f);
+    }
 
-    // Getters and setters for heartRate, calorie
+    public void pause() { status = "Paused"; }
+    public void stop() {
+        endTime = LocalDateTime.now();
+        status = "Inactive";
+    }
+
+    // Getters
+    public String getWorkoutId() { return workoutId; }
+    public LocalDateTime getStartTime() { return startTime; }
+    public LocalDateTime getEndTime() { return endTime; }
+    public String getStatus() { return status; }
+    public HeartRate getHeartRate() { return heartRate; }
+    public Calorie getCalorie() { return calorie; }
 }
