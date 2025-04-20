@@ -1,2 +1,12 @@
-git clone https://github.com/NoncedoQanda/RealTimeFitnessTracker.git
-cd RealTimeFitnessTracker
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug Fitness Tracker",
+            "request": "launch",
+            "mainClass": "com.fitness.tracker.Main",
+            "projectName": "RealTimeFitnessTracker"
+        }
+    ]
+}
