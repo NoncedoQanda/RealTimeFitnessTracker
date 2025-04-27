@@ -117,6 +117,7 @@ classDiagram
         +getUserRepository(storageType) UserRepository
         +getWorkoutRepository(storageType) WorkoutRepository
     }
+
     UserRepository <|.. InMemoryUserRepository
     UserRepository <|.. DatabaseUserRepository
     WorkoutRepository <|.. InMemoryWorkoutRepository
@@ -124,7 +125,9 @@ classDiagram
     Repository~Workout,String~ <|.. WorkoutRepository
     RepositoryFactory --> UserRepository
     RepositoryFactory --> WorkoutRepository
+```
 
 **No Inheritance**: Avoided a “Data” superclass for HeartRate and Calorie to keep it simple, matching Assignment 8’s distinct states.
 
 **Alignment**: Matches domain_model.md and Assignment 6 user stories (e.g., US-003 for Workout’s start()).
+
