@@ -75,3 +75,7 @@ The Real-Time Fitness Tracker is a mobile application designed to monitor workou
 - **Task 1: Repository Interfaces** (/repositories):
   - Used generics in `Repository<T, ID>` to avoid code duplication across entities (User, Workout).
   - Defined `UserRepository` and `WorkoutRepository` for specific CRUD operations, extensible for future methods (e.g., findByEmail).
+ 
+  - - **Task 3: Storage Abstraction** (/factories):
+  - Chose Factory Pattern over DI for simplicity in creating repository instances (e.g., InMemoryUserRepository).
+  - RepositoryFactory supports switching storage types (MEMORY, DATABASE), ensuring decoupling.
