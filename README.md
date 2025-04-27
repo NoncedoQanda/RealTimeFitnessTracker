@@ -70,3 +70,8 @@ The Real-Time Fitness Tracker is a mobile application designed to monitor workou
 - [Creational Patterns](/creational_patterns)
 - [Tests](/tests)
 - [Changelog](CHANGELOG.md)
+
+- ## Assignment 11: Persistence Repository Layer
+- **Task 1: Repository Interfaces** (/repositories):
+  - Used generics in `Repository<T, ID>` to avoid code duplication across entities (User, Workout).
+  - Defined `UserRepository` and `WorkoutRepository` for specific CRUD operations, extensible for future methods (e.g., findByEmail).
