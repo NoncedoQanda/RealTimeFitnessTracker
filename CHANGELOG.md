@@ -25,11 +25,18 @@
 - Cleaned up untracked files and nested directory (#91).
 - Fixed JAVA_HOME for JDK 24 (#97, #112, #113).
 - Created .mvn/jvm.config to suppress JDK 24 warnings (#79, #103).
-- Resolved git push conflict by pulling remote changes (#104).
+- Resolved git push conflict by pulling remote changes (#104, #119).
 - Fixed non-parseable pom.xml and added FitnessTrackerApplication (#72, #105, #110).
-- Fixed UserControllerTest.java compilation errors by moving to src/test/java and correcting syntax (#113).
+- Fixed UserControllerTest.java compilation errors by moving to src/test/java (#113).
 - Implemented service layer with UserService, WorkoutService, GoalService (#114).
 - Developed REST API for User, Workout, Goal (#115).
 - Documented API with Swagger (#116).
-- Updated GitHub issues and Kanban board (#117).
-- Created issues #57-#117, moved to Done on Sprint 1 Kanban.
+- Updated pom.xml with guava-33.3.0-jre and verified dependencies (#118).
+- Moved test files to src/test/java and updated .gitignore (#120).
+- Fixed build failure by correcting test file content (#121).
+- Fixed pom.xml syntax and aligned with Java 24, Spring Boot 3.3.4 (#122).
+- Corrected UserControllerTest.java declaration for REST API testing (#123).
+- Fixed UserController.java by removing org.junit.jupiter.api import (#124).
+- Fixed UserController.java by removing org.springframework.boot.test.context import (#125).
+- Fixed UserControllerTest.java path and removed invalid # Code Citations.md (#126).
+- Created issues #57-#126, moved to Done on Sprint 1 Kanban.
