@@ -56,6 +56,15 @@
             <version>33.3.0-jre</version>
         </dependency>
     </dependencies>
+         <dependencies>
+    <!-- Other dependencies -->
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter</artifactId>
+        <version>5.10.0</version>
+        <scope>test</scope>
+    </dependency>
+</dependencies>
 
     <build>
         <plugins>
