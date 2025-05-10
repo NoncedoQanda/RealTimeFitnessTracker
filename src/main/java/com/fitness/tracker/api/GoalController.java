@@ -1,40 +1,33 @@
 package com.fitness.tracker.api;
 
-import com.fitness.tracker.Goal;
-import com.fitness.tracker.services.GoalService;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+     import com.fitness.tracker.domain.Goal;
+     import com.fitness.tracker.service.GoalService;
+     import org.springframework.beans.factory.annotation.Autowired;
+     import org.springframework.http.ResponseEntity;
+     import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+     @RestController
+     @RequestMapping("/api/goals")
+     public class GoalController {
+         private final GoalService goalService;
 
-@RestController
-@RequestMapping("/api/goals")
-public class GoalController {
-    private final GoalService goalService;
+         @Autowired
+         public GoalController(GoalService goalService) {
+             this.goalService = goalService;
+         }
 
-    public GoalController(GoalService goalService) {
-        this.goalService = goalService;
-    }
-
-    @GetMapping
-    public List<Goal> getAllGoals() {
-        return goalService.getAllGoals();
-    }
-
-    @GetMapping("/{goalId}")
-    public ResponseEntity<Goal> getGoalById(@PathVariable String goalId) {
-        return goalService.getGoalById(goalId)
-                .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
-    }
-
-    @PostMapping
-    public Goal createGoal(@RequestBody Goal goal) {
-        return goalService.createGoal(goal);
-    }
-
-    @PostMapping("/{goalId}/achieve")
-    public Goal achieveGoal(@PathVariable String goalId) {
-        return goalService.achieveGoal(goalId);
-    }
+         @PostMapping
+public ResponseEntity<Goal> createGoal(@RequestBody Goal goal) {
+    Goal createdGoal = goalService.createGoal(goal); // Fix: use goalService
+    return ResponseEntity.ok(createdGoal);
 }
+
+         @GetMapping("/{goalId}")
+         public ResponseEntity<Goal> getGoalById(@PathVariable String goalId) {
+             Goal goal = goalService.getGoalById(goalId);
+             if (goal != null) {
+                 return ResponseEntity.ok(goal);
+             }
+             return ResponseEntity.notFound().build();
+         }
+     }

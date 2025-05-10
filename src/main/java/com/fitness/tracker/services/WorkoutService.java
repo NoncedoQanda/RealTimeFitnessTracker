@@ -1,39 +1,25 @@
-package com.fitness.tracker.services;
+package com.fitness.tracker.service;
 
-import com.fitness.tracker.User;
-import com.fitness.tracker.Workout;
-import com.fitness.tracker.repository.UserRepository;
-import com.fitness.tracker.repository.WorkoutRepository;
-import java.util.List;
-import java.util.Optional;
+     import com.fitness.tracker.domain.Workout;
+     import com.fitness.tracker.repository.WorkoutRepository;
+     import java.util.Optional;
 
-public class WorkoutService {
-    private final WorkoutRepository workoutRepository;
-    private final UserRepository userRepository;
+     public class WorkoutService {
+         private final WorkoutRepository workoutRepository;
 
-    public WorkoutService(WorkoutRepository workoutRepository, UserRepository userRepository) {
-        this.workoutRepository = workoutRepository;
-        this.userRepository = userRepository;
-    }
+         public WorkoutService(WorkoutRepository workoutRepository) {
+             this.workoutRepository = workoutRepository;
+         }
 
-    public Workout createWorkout(Workout workout) {
-        Optional<User> user = userRepository.findById(workout.getUserId());
-        if (user.isEmpty()) {
-            throw new IllegalArgumentException("User not found");
-        }
-        if (user.get().getWorkoutCount() >= 5) {
-            throw new IllegalStateException("User cannot have more than 5 workouts");
-        }
-        user.get().incrementWorkoutCount();
-        userRepository.save(user.get());
-        return workoutRepository.save(workout);
-    }
+         public Workout createWorkout(Workout workout) {
+             if (workout.getDuration() <= 0) {
+                 throw new IllegalArgumentException("Workout duration must be positive");
+             }
+             return workoutRepository.save(workout);
+         }
 
-    public Optional<Workout> getWorkoutById(String workoutId) {
-        return workoutRepository.findById(workoutId);
-    }
-
-    public List<Workout> getAllWorkouts() {
-        return workoutRepository.findAll();
-    }
-}
+         public Workout getWorkoutById(String workoutId) {
+             Optional<Workout> workout = workoutRepository.findById(workoutId);
+             return workout.orElse(null);
+         }
+     }

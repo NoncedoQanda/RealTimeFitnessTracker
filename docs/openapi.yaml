@@ -1,0 +1,140 @@
+openapi: 3.0.3
+     info:
+       title: Real-Time Fitness Tracker API
+       version: 1.0.0
+     paths:
+       /api/users:
+         post:
+           summary: Create a new user
+           requestBody:
+             content:
+               application/json:
+                 schema:
+                   $ref: '#/components/schemas/User'
+           responses:
+             '200':
+               description: User created
+               content:
+                 application/json:
+                   schema:
+                     $ref: '#/components/schemas/User'
+       /api/users/{userId}:
+         get:
+           summary: Get user by ID
+           parameters:
+             - name: userId
+               in: path
+               required: true
+               schema:
+                 type: string
+           responses:
+             '200':
+               description: User found
+               content:
+                 application/json:
+                   schema:
+                     $ref: '#/components/schemas/User'
+             '404':
+               description: User not found
+       /api/workouts:
+         post:
+           summary: Create a new workout
+           requestBody:
+             content:
+               application/json:
+                 schema:
+                   $ref: '#/components/schemas/Workout'
+           responses:
+             '200':
+               description: Workout created
+               content:
+                 application/json:
+                   schema:
+                     $ref: '#/components/schemas/Workout'
+       /api/workouts/{workoutId}:
+         get:
+           summary: Get workout by ID
+           parameters:
+             - name: workoutId
+               in: path
+               required: true
+               schema:
+                 type: string
+           responses:
+             '200':
+               description: Workout found
+               content:
+                 application/json:
+                   schema:
+                     $ref: '#/components/schemas/Workout'
+             '404':
+               description: Workout not found
+       /api/goals:
+         post:
+           summary: Create a new goal
+           requestBody:
+             content:
+               application/json:
+                 schema:
+                   $ref: '#/components/schemas/Goal'
+           responses:
+             '200':
+               description: Goal created
+               content:
+                 application/json:
+                   schema:
+                     $ref: '#/components/schemas/Goal'
+       /api/goals/{goalId}:
+         get:
+           summary: Get goal by ID
+           parameters:
+             - name: goalId
+               in: path
+               required: true
+               schema:
+                 type: string
+           responses:
+             '200':
+               description: Goal found
+               content:
+                 application/json:
+                   schema:
+                     $ref: '#/components/schemas/Goal'
+             '404':
+               description: Goal not found
+     components:
+       schemas:
+         User:
+           type: object
+           properties:
+             userId:
+               type: string
+             name:
+               type: string
+             email:
+               type: string
+         Workout:
+           type: object
+           properties:
+             workoutId:
+               type: string
+             userId:
+               type: string
+             type:
+               type: string
+             duration:
+               type: integer
+             date:
+               type: string
+               format: date-time
+         Goal:
+           type: object
+           properties:
+             goalId:
+               type: string
+             userId:
+               type: string
+             description:
+               type: string
+             achieved:
+               type: boolean
