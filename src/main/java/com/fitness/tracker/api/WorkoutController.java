@@ -1,33 +1,40 @@
 package com.fitness.tracker.api;
 
-     import com.fitness.tracker.domain.Workout;
-     import com.fitness.tracker.service.WorkoutService;
-     import org.springframework.beans.factory.annotation.Autowired;
-     import org.springframework.http.ResponseEntity;
-     import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-     @RestController
-     @RequestMapping("/api/workouts")
-     public class WorkoutController {
-         private final WorkoutService workoutService;
+import java.util.*;
 
-         @Autowired
-         public WorkoutController(WorkoutService workoutService) {
-             this.workoutService = workoutService;
-         }
+@RestController
+@RequestMapping("/api/workouts")
+public class WorkoutController {
 
-         @PostMapping
-         public ResponseEntity<Workout> createWorkout(@RequestBody Workout workout) {
-             Workout createdWorkout = workoutService.createWorkout(workout);
-             return ResponseEntity.ok(createdWorkout);
-         }
+    private static final Map<Long, String> workouts = new HashMap<>();
 
-         @GetMapping("/{workoutId}")
-         public ResponseEntity<Workout> getWorkoutById(@PathVariable String workoutId) {
-             Workout workout = workoutService.getWorkoutById(workoutId);
-             if (workout != null) {
-                 return ResponseEntity.ok(workout);
-             }
-             return ResponseEntity.notFound().build();
-         }
-     }
+    static {
+        workouts.put(1L, "Morning Yoga");
+        workouts.put(2L, "Evening Run");
+    }
+
+    @GetMapping
+    public ResponseEntity<List<String>> getAllWorkouts() {
+        return ResponseEntity.ok(new ArrayList<>(workouts.values()));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<String> getWorkoutById(@PathVariable Long id) {
+        String workout = workouts.get(id);
+        if (workout != null) {
+            return ResponseEntity.ok(workout);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PostMapping
+    public ResponseEntity<String> createWorkout(@RequestBody String workout) {
+        long id = workouts.size() + 1L;
+        workouts.put(id, workout);
+        return ResponseEntity.status(201).body(workout);
+    }
+}

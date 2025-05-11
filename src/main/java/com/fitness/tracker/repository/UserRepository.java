@@ -1,19 +1,8 @@
+// File: src/main/java/com/fitness/tracker/repository/UserRepository.java
 package com.fitness.tracker.repository;
 
-     import com.fitness.tracker.domain.User;
-     import java.util.HashMap;
-     import java.util.Map;
-     import java.util.Optional;
+import com.fitness.tracker.model.User;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-     public class UserRepository {
-         private final Map<String, User> users = new HashMap<>();
-
-         public User save(User user) {
-             users.put(user.getUserId(), user);
-             return user;
-         }
-
-         public Optional<User> findById(String userId) {
-             return Optional.ofNullable(users.get(userId));
-         }
-     }
+public interface UserRepository extends JpaRepository<User, Long> {
+}
