@@ -1,7 +1,7 @@
 package com.fitness.tracker.api;
 
-     import com.fitness.tracker.domain.User;
-     import com.fitness.tracker.service.UserService;
+     import com.fitness.tracker.User;
+     import com.fitness.tracker.services.UserService;
      import org.springframework.beans.factory.annotation.Autowired;
      import org.springframework.http.ResponseEntity;
      import org.springframework.web.bind.annotation.*;

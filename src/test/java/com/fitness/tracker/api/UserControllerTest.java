@@ -1,7 +1,7 @@
 package com.fitness.tracker.api;
 
-     import com.fitness.tracker.domain.User;
-     import com.fitness.tracker.service.UserService;
+     import com.fitness.tracker.User;
+     import com.fitness.tracker.services.UserService;
      import org.junit.jupiter.api.Test;
      import org.springframework.beans.factory.annotation.Autowired;
      import org.springframework.boot.test.context.SpringBootTest;
@@ -12,7 +12,7 @@ package com.fitness.tracker.api;
      import static org.junit.jupiter.api.Assertions.*;
 
      @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-     class UserControllerTest {
+     public class UserControllerTest {
          @Autowired
          private TestRestTemplate restTemplate;
 
@@ -26,6 +26,7 @@ package com.fitness.tracker.api;
              assertEquals(HttpStatus.OK, response.getStatusCode());
              assertNotNull(response.getBody());
              assertEquals("u1", response.getBody().getUserId());
+             assertEquals("Alice", response.getBody().getName());
          }
 
          @Test
