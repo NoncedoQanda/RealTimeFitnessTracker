@@ -1,6 +1,14 @@
 # REFLECTION.md
-## Challenges in Balancing Stakeholder Needs
+## Challenges in Balancing Stakeholder Needs for Real-Time Fitness Tracker
 
-1. **Real-Time vs. Scalability**: Fitness Enthusiasts want instant data (1-second updates), but Cloud Providers need scalable servers for 10,000 users. This required prioritizing efficient data processing over feature bloat.
-2. **Security vs. Usability**: Healthcare Professionals demand encryption and MFA, which could frustrate Enthusiasts wanting quick access. I balanced this with optional MFA for non-medical users.
-3. **Integration Complexity**: Trainers and Device Manufacturers need API support, but Developers face compatibility challenges. I limited integrations to major APIs (e.g., Google Fit) to keep it manageable.
+1. **Real-Time Data vs. Scalability**:  
+   - *Challenge*: Fitness Enthusiasts demand instant data updates (1-second latency), but Cloud Service Providers need scalable infrastructure for 10,000 users during peak times.  
+   - *Resolution*: Prioritized efficient data processing (e.g., lightweight sync in FR4) over adding complex features, ensuring scalability (NFR5).
+
+2. **Security vs. Usability**:  
+   - *Challenge*: Healthcare Professionals require encryption (NFR6) and MFA (NFR7), which could frustrate Fitness Enthusiasts wanting quick access (NFR2).  
+   - *Resolution*: Made MFA optional for non-medical users, balancing security with ease of use.
+
+3. **Integration Complexity**:  
+   - *Challenge*: Personal Trainers and Fitness Device Manufacturers need API integration (FR6), but App Developers face compatibility issues across devices.  
+   - *Resolution*: Limited integrations to major APIs (e.g., Google Fit), keeping development feasible (NFR4).
