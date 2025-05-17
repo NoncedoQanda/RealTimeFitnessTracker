@@ -33,3 +33,27 @@ graph TD;
     D -->|Reads| E[Mobile Device Sensors]
     C -->|Sends to| F[Backend API];
 ```
+
+## Container Diagram
+The system consists of a mobile app for user interaction, a backend API for processing, and a database for storage, leveraging mobile device sensors.
+
+```mermaid
+graph TD
+    A[User] -->|Interacts with| B[Mobile App]
+    B -->|Reads| C[Mobile Device Sensors]
+    B -->|Sends data to| D[Backend API]
+    D -->|Stores/Retrieves| E[Database]
+    D -->|Queries| F[External Fitness API]
+```
+
+## Component Diagram
+Inside the Mobile App, key components handle user interaction, data processing, and sensor communication.
+
+```mermaid
+graph TD
+    A[User] -->|Interacts with| B[UI Layer]
+    B -->|Calls| C[Data Processor]
+    C -->|Fetches data from| D[Sensor Interface]
+    D -->|Reads| E[Mobile Device Sensors]
+    C -->|Sends to| F[Backend API]
+```
