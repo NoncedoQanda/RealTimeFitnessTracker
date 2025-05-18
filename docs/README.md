@@ -79,3 +79,21 @@ The Real-Time Fitness Tracker is a mobile application designed to monitor workou
   - - **Task 3: Storage Abstraction** (/factories):
   - Chose Factory Pattern over DI for simplicity in creating repository instances (e.g., InMemoryUserRepository).
   - RepositoryFactory supports switching storage types (MEMORY, DATABASE), ensuring decoupling.
+# RealTimeFitnessTracker
+
+**RealTimeFitnessTracker** is a web/mobile app for tracking fitness metrics like steps, heart rate, and workouts in real-time.
+
+## Getting Started
+1. Clone the repo: `git clone https://github.com/your-username/RealTimeFitnessTracker.git`
+2. Install frontend dependencies: `cd frontend && npm install`
+3. Install backend dependencies: `cd backend && pip install -r requirements.txt`
+4. Run the app: `npm run start` (frontend) and `python manage.py runserver` (backend)
+
+## Features for Contribution
+| Feature | Issue | Status |
+|---------|-------|--------|
+| Add calories calculation | [#20](https://github.com/your-username/RealTimeFitnessTracker/issues/20) | Open |
+| Fix step counter alignment | [#18](https://github.com/your-username/RealTimeFitnessTracker/issues/18) | Open |
+| Write tests for heart rate API | [#15](https://github.com/your-username/RealTimeFitnessTracker/issues/15) | Open |
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute.
